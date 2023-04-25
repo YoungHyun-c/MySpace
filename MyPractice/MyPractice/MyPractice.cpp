@@ -1,20 +1,105 @@
-﻿// MyPractice.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
-//
+﻿
 
-#include <iostream>
+#include <stdio.h>
+#include <Windows.h>
+#include <conio.h>
+
+bool IsPlay = true;
+
+//void PlayerMove(int* PlayerY, int* PlayerX, int _Y, int _X)
+//{
+//	*PlayerY += _Y;
+//	*PlayerX += _X;
+//}
+
+int* PlayerMove(int* PlayerY, int* PlayerX, int _Y, int _X)
+{
+	*PlayerY += _Y;
+	*PlayerX += _X;
+
+	return PlayerY, PlayerX;
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	const int ScreenXSize = 10;
+	const int ScreenYSize = 5;
+
+	char Arr[ScreenYSize][ScreenXSize] = { 0, };
+
+	for (size_t Y = 0; Y < ScreenYSize; Y++)
+	{
+		for (size_t X = 0; X < ScreenXSize; X++)
+		{
+			Arr[Y][X] = 'a';
+			printf_s("%c", Arr[Y][X]);
+		}
+		printf_s("\n");
+	}
+
+	int PlayerX = ScreenXSize / 2;
+	int PlayerY = ScreenYSize / 2;
+
+	while (IsPlay)
+	{
+		system("cls");
+
+		//Arr[PlayerY][PlayerX] = '*';
+
+		for (size_t Y = 0; Y < ScreenYSize; Y++)
+		{
+			for (size_t X = 0; X < ScreenXSize; X++)
+			{
+				if (PlayerY == Y && PlayerX == X)
+				{
+					printf_s("*");
+				}
+				else
+				{
+					printf_s("%c", Arr[Y][X]);
+				}
+			}
+			printf_s("\n");
+		}
+
+		if (0 == _kbhit())
+		{
+			Sleep(200);
+			continue;
+		}
+
+		char ch = _getch();
+
+		switch (ch)
+		{
+		case 'a':
+		case 'A':
+			//PlayerX -= 1;
+			//Arr[PlayerY][PlayerX + 1] = 'a';
+			PlayerMove(&PlayerY, &PlayerX, 0, -1);
+			break;
+		case 'd':
+		case 'D':
+			PlayerX += 1;
+			//Arr[PlayerY][PlayerX - 1] = 'a';
+			break;
+		case 'w':
+		case 'W':
+			PlayerY -= 1;
+			//Arr[PlayerY + 1][PlayerX] = 'a';
+			break;
+		case 's':
+		case 'S':
+			PlayerY += 1;
+			//Arr[PlayerY - 1][PlayerX] = 'a';
+			break;
+		case 'q':
+		case 'Q':
+			IsPlay = false;
+			return 1;
+		default:
+			break;
+		}
+		Sleep(200);
+	}
 }
-
-// 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
-// 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴
-
-// 시작을 위한 팁: 
-//   1. [솔루션 탐색기] 창을 사용하여 파일을 추가/관리합니다.
-//   2. [팀 탐색기] 창을 사용하여 소스 제어에 연결합니다.
-//   3. [출력] 창을 사용하여 빌드 출력 및 기타 메시지를 확인합니다.
-//   4. [오류 목록] 창을 사용하여 오류를 봅니다.
-//   5. [프로젝트] > [새 항목 추가]로 이동하여 새 코드 파일을 만들거나, [프로젝트] > [기존 항목 추가]로 이동하여 기존 코드 파일을 프로젝트에 추가합니다.
-//   6. 나중에 이 프로젝트를 다시 열려면 [파일] > [열기] > [프로젝트]로 이동하고 .sln 파일을 선택합니다.

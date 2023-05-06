@@ -1,6 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Level0">
+      <UniqueIdentifier>{47af085f-c853-4585-a5b8-0bcfa8d5fde0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level1">
+      <UniqueIdentifier>{03824d7b-04a1-4c99-9743-97be27c79414}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level2">
+      <UniqueIdentifier>{090c6192-347b-4d7c-ad45-8529ad045017}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Math.cpp">
+      <Filter>Level0</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleGameScreen.cpp">
+      <Filter>Level1</Filter>
+    </ClCompile>
     <ClCompile Include="MyPractice.cpp" />
+    <ClCompile Include="Player.cpp">
+      <Filter>Level2</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Math.h">
+      <Filter>Level0</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleGameScreen.h">
+      <Filter>Level1</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Level2</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

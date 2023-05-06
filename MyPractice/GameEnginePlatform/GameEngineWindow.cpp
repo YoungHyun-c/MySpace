@@ -21,10 +21,10 @@ void GameEngineWindow::Open(const std::string& _Title, HINSTANCE _hInstance)
     Instance = _hInstance;
     Title = _Title;
 
-    //if (nullptr == Instance)
-    //{
-    //    //MsgBoxAssert("HInstance 없이 윈도우를 만들 수 는 없습니다.")
-    //}
+    if (nullptr == Instance)
+    {
+        MsgBoxAssert("HInstance 없이 윈도우를 만들 수 는 없습니다.")
+    }
 
     MyRegisterClass();
     InitInstance();
@@ -39,7 +39,7 @@ void GameEngineWindow::InitInstance()
 
     if (!hWnd)
     {
-        //MsgBoxAssert("윈도우 생성에 실패했습니다.")
+        MsgBoxAssert("윈도우 생성에 실패했습니다.")
         return;
     }
 
@@ -95,7 +95,7 @@ void GameEngineWindow::MyRegisterClass()
     // 반환값 (ATOM 함수가 실패하면 반환값은 0 이다)
     if (false == RegisterClassExA(&wcex))
     {
-        //MsgBoxAssert("윈도우 클래스 등록에 실패했습니다.");
+        MsgBoxAssert("윈도우 클래스 등록에 실패했습니다.");
         return;
     }
     Check = true;

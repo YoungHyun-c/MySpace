@@ -1,4 +1,6 @@
 #pragma once
+#include <Windows.h>
+#include <assert.h>
 
 // Ό³Έν :
 class GameEngineDebug
@@ -14,9 +16,18 @@ public:
 	GameEngineDebug& operator = (const GameEngineDebug& _Other) = delete;
 	GameEngineDebug& operator = (GameEngineDebug&& _Other) noexcept = delete;
 
+	static void LeckCheck();
+
 protected:
 
 private:
 
 };
 
+//#define MsgBoxAssert(Text) \
+//MessageBoxA(Nullptr, Text, "Error", MB_OK); \
+//assert(false);
+
+#define MsgBoxAssert(Text) \
+std::string Value = Text; \
+MessageBoxA(nullptr, Value.c_str(), "Error", MB_OK); assert(false);

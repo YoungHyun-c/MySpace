@@ -35,10 +35,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Kirby", "Kirby\Kirby.vcxpro
 		{FF16E4E3-DCCD-4F09-B9A7-6676C4671D0D} = {FF16E4E3-DCCD-4F09-B9A7-6676C4671D0D}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameEnginePlatform", "..\..\..\WinApi_Project_Kirby\WinApi_Kirby_Squeak-Squad\WinApi\GameEnginePlatform\GameEnginePlatform.vcxproj", "{14FA8CF7-EA7F-41B3-B306-A39AFCA3542B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{61AD5A75-0125-4A92-86F0-B05D4EE8416D} = {61AD5A75-0125-4A92-86F0-B05D4EE8416D}
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DOC", "DOC", "{680352BC-7C94-4134-BEA9-74E7ECAD51DE}"
+	ProjectSection(SolutionItems) = preProject
+		델타 타임.txt = 델타 타임.txt
+		프로젝트 구성.txt = 프로젝트 구성.txt
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameEnginePlatform", "GameEnginePlatform\GameEnginPlatform.vcxproj", "{48FE294C-97EC-49C6-9A05-A841CDE1ECA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -88,14 +91,14 @@ Global
 		{437D53F0-56BF-4356-B1FF-E0DF326AA6F1}.Release|x64.Build.0 = Release|x64
 		{437D53F0-56BF-4356-B1FF-E0DF326AA6F1}.Release|x86.ActiveCfg = Release|Win32
 		{437D53F0-56BF-4356-B1FF-E0DF326AA6F1}.Release|x86.Build.0 = Release|Win32
-		{14FA8CF7-EA7F-41B3-B306-A39AFCA3542B}.Debug|x64.ActiveCfg = Debug|x64
-		{14FA8CF7-EA7F-41B3-B306-A39AFCA3542B}.Debug|x64.Build.0 = Debug|x64
-		{14FA8CF7-EA7F-41B3-B306-A39AFCA3542B}.Debug|x86.ActiveCfg = Debug|Win32
-		{14FA8CF7-EA7F-41B3-B306-A39AFCA3542B}.Debug|x86.Build.0 = Debug|Win32
-		{14FA8CF7-EA7F-41B3-B306-A39AFCA3542B}.Release|x64.ActiveCfg = Release|x64
-		{14FA8CF7-EA7F-41B3-B306-A39AFCA3542B}.Release|x64.Build.0 = Release|x64
-		{14FA8CF7-EA7F-41B3-B306-A39AFCA3542B}.Release|x86.ActiveCfg = Release|Win32
-		{14FA8CF7-EA7F-41B3-B306-A39AFCA3542B}.Release|x86.Build.0 = Release|Win32
+		{48FE294C-97EC-49C6-9A05-A841CDE1ECA3}.Debug|x64.ActiveCfg = Debug|x64
+		{48FE294C-97EC-49C6-9A05-A841CDE1ECA3}.Debug|x64.Build.0 = Debug|x64
+		{48FE294C-97EC-49C6-9A05-A841CDE1ECA3}.Debug|x86.ActiveCfg = Debug|Win32
+		{48FE294C-97EC-49C6-9A05-A841CDE1ECA3}.Debug|x86.Build.0 = Debug|Win32
+		{48FE294C-97EC-49C6-9A05-A841CDE1ECA3}.Release|x64.ActiveCfg = Release|x64
+		{48FE294C-97EC-49C6-9A05-A841CDE1ECA3}.Release|x64.Build.0 = Release|x64
+		{48FE294C-97EC-49C6-9A05-A841CDE1ECA3}.Release|x86.ActiveCfg = Release|Win32
+		{48FE294C-97EC-49C6-9A05-A841CDE1ECA3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,7 +108,7 @@ Global
 		{6D3CE163-C255-4082-A834-1186E106D8DF} = {F1BF62D3-FEC4-41F8-93B4-90F629CF34F1}
 		{FF16E4E3-DCCD-4F09-B9A7-6676C4671D0D} = {F6ABF475-55BA-4007-A774-79C9D757A3DC}
 		{437D53F0-56BF-4356-B1FF-E0DF326AA6F1} = {A6B31EBD-BBB7-47AD-95A9-06A7A0902D04}
-		{14FA8CF7-EA7F-41B3-B306-A39AFCA3542B} = {DB05F301-1BAD-49A1-9012-8B23734EBD01}
+		{48FE294C-97EC-49C6-9A05-A841CDE1ECA3} = {DB05F301-1BAD-49A1-9012-8B23734EBD01}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8AC7F963-6E93-4790-AFBB-9FE82994B48C}

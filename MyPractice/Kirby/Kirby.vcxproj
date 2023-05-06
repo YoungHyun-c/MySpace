@@ -154,14 +154,14 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\WinApi_Project_Kirby\WinApi_Kirby_Squeak-Squad\WinApi\GameEnginePlatform\GameEnginePlatform.vcxproj">
-      <Project>{14fa8cf7-ea7f-41b3-b306-a39afca3542b}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\GameEngineBase\GameEngineBase.vcxproj">
       <Project>{61ad5a75-0125-4a92-86f0-b05d4ee8416d}</Project>
     </ProjectReference>
     <ProjectReference Include="..\GameEngineCore\GameEngineCore.vcxproj">
       <Project>{6d3ce163-c255-4082-a834-1186e106d8df}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GameEnginePlatform\GameEnginPlatform.vcxproj">
+      <Project>{48fe294c-97ec-49c6-9a05-a841cde1eca3}</Project>
     </ProjectReference>
     <ProjectReference Include="..\KirbyEngineContents\KirbyEngineContents.vcxproj">
       <Project>{ff16e4e3-dccd-4f09-b9a7-6676c4671d0d}</Project>

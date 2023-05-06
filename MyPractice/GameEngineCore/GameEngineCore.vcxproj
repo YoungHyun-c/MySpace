@@ -199,11 +199,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\WinApi_Project_Kirby\WinApi_Kirby_Squeak-Squad\WinApi\GameEnginePlatform\GameEnginePlatform.vcxproj">
-      <Project>{14fa8cf7-ea7f-41b3-b306-a39afca3542b}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\GameEngineBase\GameEngineBase.vcxproj">
       <Project>{61ad5a75-0125-4a92-86f0-b05d4ee8416d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GameEnginePlatform\GameEnginPlatform.vcxproj">
+      <Project>{48fe294c-97ec-49c6-9a05-a841cde1eca3}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

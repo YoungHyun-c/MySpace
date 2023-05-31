@@ -1,13 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Global">
+      <UniqueIdentifier>{74724e9a-b8d9-49fb-941a-6889b15ae8a4}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Level">
       <UniqueIdentifier>{2e18aee3-1790-4376-9910-50e92d06ef8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play">
+      <UniqueIdentifier>{ae14405e-37e9-46b5-afec-a7a1fd22f0a9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentCore.h" />
-    <ClInclude Include="Player.h" />
     <ClInclude Include="TitleLevel.h">
       <Filter>Level</Filter>
     </ClInclude>
@@ -17,10 +22,40 @@
     <ClInclude Include="EndingLevel.h">
       <Filter>Level</Filter>
     </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="ContentsEnum.h">
+      <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayUIManager.h">
+      <Filter>Play</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayActor.h" />
+    <ClInclude Include="Stage1_1.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1_2.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="StageItem.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="StageBoss.h">
+      <Filter>Level</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentCore.cpp" />
-    <ClCompile Include="Player.cpp" />
     <ClCompile Include="TitleLevel.cpp">
       <Filter>Level</Filter>
     </ClCompile>
@@ -28,6 +63,37 @@
       <Filter>Level</Filter>
     </ClCompile>
     <ClCompile Include="EndingLevel.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_State.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayUIManager.cpp">
+      <Filter>Play</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayActor.cpp" />
+    <ClCompile Include="Stage1_1.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1_2.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="StageItem.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="StageBoss.cpp">
       <Filter>Level</Filter>
     </ClCompile>
   </ItemGroup>

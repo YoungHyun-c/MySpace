@@ -2,8 +2,39 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="GameEngineWindow.h" />
+    <ClInclude Include="GameEngineInput.h" />
+    <ClInclude Include="GameEngineSound.h" />
+    <ClInclude Include="GameEngineWindowTexture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineWindow.cpp" />
+    <ClCompile Include="GameEngineInput.cpp" />
+    <ClCompile Include="GameEngineSound.cpp" />
+    <ClCompile Include="GameEngineWindowTexture.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="FMDO">
+      <UniqueIdentifier>{bf36ed6a-351b-45be-b6ae-69cb350ec3c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FMDO\Debug">
+      <UniqueIdentifier>{2dc17bbe-a198-4505-9def-c9d40d882e29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FMDO\Release">
+      <UniqueIdentifier>{3d1867ad-7805-411b-a453-74122d0bae63}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="ThirdParty\FMOD\lib\x64\fmodL.dll">
+      <Filter>FMDO\Debug</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="ThirdParty\FMOD\lib\x64\fmodL_vc.lib">
+      <Filter>FMDO\Debug</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="ThirdParty\FMOD\lib\x64\fmod.dll">
+      <Filter>FMDO\Release</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="ThirdParty\FMOD\lib\x64\fmod_vc.lib">
+      <Filter>FMDO\Release</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>

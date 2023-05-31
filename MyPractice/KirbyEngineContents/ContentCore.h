@@ -1,7 +1,9 @@
 #pragma once
+#include <GameEngineCore/GameEngineCore.h>
+
 
 // Ό³Έν :
-class ContentCore
+class ContentCore : public CoreProcess
 {
 public:
 	// constructer destructer
@@ -17,6 +19,12 @@ public:
 protected:
 
 private:
+	void Start() override;
 
+	void Update(float _Delta) override;
+
+	void Render(float _Delta) override;
+
+	void Release() override;
 };
 

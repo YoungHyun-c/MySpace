@@ -45,13 +45,24 @@ void Stage1_1::Start()
 	}
 
 	BackGroundPtr = CreateActor<BackGround>();
-	BackGroundPtr->Init("StageTest.Bmp", "Stage1_1.Bmp");
+	BackGroundPtr->Init("StageTest.Bmp", "Stage1_1.bmp");
+
+	LevelPlayer = CreateActor<Player>();
+	LevelPlayer->SetGroundTexture("Stage1_1.bmp");
 
 	CreateActor<PlayUIManager>();
 }
 
 void Stage1_1::Update(float _Delta)
 {
+	if (true == GameEngineInput::IsDown('0'))
+	{
+		GameEngineCore::ChangeLevel("TitleLevel");
+	}
+	if (true == GameEngineInput::IsDown('1'))
+	{
+		GameEngineCore::ChangeLevel("Stage1_1");
+	}
 	if (true == GameEngineInput::IsDown('2'))
 	{
 		GameEngineCore::ChangeLevel("Stage1_2");
@@ -63,6 +74,10 @@ void Stage1_1::Update(float _Delta)
 	if (true == GameEngineInput::IsDown('4'))
 	{
 		GameEngineCore::ChangeLevel("StageBoss");
+	}
+	if (true == GameEngineInput::IsDown('5'))
+	{
+		GameEngineCore::ChangeLevel("EndingLevel");
 	}
 
 	if (true == GameEngineInput::IsDown('J'))

@@ -60,20 +60,6 @@ void BackGround::Init(const std::string& _FileName, const std::string& _DebugFil
 	DebugRenderer->SetTexture(_DebugFileName);
 	DebugRenderer->SetRenderScale(Scale);
 	SetPos({ Scale.hX(), Scale.hY() });
-
-	//float4 Scale = Text->GetScale();
-
-	//Scale.X *= 2.0f;
-	//Scale.Y *= 2.0f;
-
-	////SetScale(Scale);
-
-	//GameEngineRenderer* Render = CreateRenderer(_FileName, RenderOrder::BackGround);
-	//Render->SetRenderScale(Scale);
-
-	//SetPos({ Scale.hX(), Scale.hY() });
-
-	// Render->SetRenderPos({ Scale.hX(), 0.0f});
 }
 
 void BackGround::SwitchRender()

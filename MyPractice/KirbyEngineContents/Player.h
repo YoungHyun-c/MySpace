@@ -5,6 +5,7 @@ enum class PlayerState
 {
 	Idle,
 	Run,
+	JUMP,
 	Max, // 일반적으로 사용하지 않는 값.
 };
 
@@ -44,9 +45,11 @@ protected:
 	void StateUpdate(float _Delta);
 	void IdleStart();
 	void RunStart();
+	void JumpStart();
 	//클래스로 만들어도 되고
 	void IdleUpdate(float _Delta);
 	void RunUpdate(float _Delta);
+	void JumpUpdate(float _Delta);
 
 	void ChangeState(PlayerState State);
 
@@ -57,6 +60,8 @@ protected:
 	int TestValue = 0;
 
 	GameEngineCollision* BodyCollision = nullptr;
+	GameEngineCollision* AttackLeftCollision = nullptr;
+	GameEngineCollision* AttackRightCollision = nullptr;
 
 	void DirCheck();
 
@@ -69,8 +74,9 @@ private:
 	void Update(float _Delta) override;
 	void Render(float _Delta) override;
 
+	bool Attack = false;
 
-	float JumpPower = 7.0f;
+	const float JumpPower = 100.0f;
 
 	//================================= DebugValue
 	float4 LeftCheck = { -100.0f, -25.0f };

@@ -85,6 +85,13 @@ void Stage1_1::Update(float _Delta)
 		BackGroundPtr->SwitchRender();
 	}
 
+
+	if (1.0f <= GetLiveTime())
+	{
+		Monster* NewMoster = CreateActor<Monster>();
+		ResetLiveTime();
+	}
+
 }
 
 void Stage1_1::Release()

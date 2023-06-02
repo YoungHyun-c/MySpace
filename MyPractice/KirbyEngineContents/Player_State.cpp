@@ -18,6 +18,12 @@ void Player::RunStart()
 	//MainRenderer->ChangeAnimation("Right_Run");
 }
 
+void Player::JumpStart()
+{
+	ChangeAnimationState("Idle");
+
+}
+
 void Player::IdleUpdate(float _Delta)
 {
 	if (true == MainRenderer->IsAnimationEnd())
@@ -148,3 +154,8 @@ void Player::RunUpdate(float _Delta)
 		}
 	}
 }
+
+//void Player::JumpUpdate(float _Delta)
+//{
+//	float4 Pos = 
+//}

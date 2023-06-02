@@ -83,10 +83,24 @@ void Player::Start()
 	}
 
 	{
-		BodyCollision = CreateCollision(CollisionOrder::PlayerBody);
-		BodyCollision->SetCollisionScale({ 10, 10 });
-		BodyCollision->SetCollisionType(CollisionType::CirCle);
+		//BodyCollision = CreateCollision(CollisionOrder::PlayerBody);
+		//BodyCollision->SetCollisionScale({ 100, 100 });
+		//BodyCollision->SetCollisionType(CollisionType::CirCle);
+	}
 
+	{
+		AttackLeftCollision = CreateCollision(CollisionOrder::PlayerAttackSize);
+		//AttackCollision->SetCollisionPos({ 100.0f, -25.0f });
+		AttackLeftCollision->SetCollisionPos(LeftCheck);
+		AttackLeftCollision->SetCollisionScale({ 180, 80 });
+		AttackLeftCollision->SetCollisionType(CollisionType::Rect);
+	}
+
+	{
+		AttackRightCollision = CreateCollision(CollisionOrder::PlayerAttackSize);
+		AttackRightCollision->SetCollisionPos(RightCheck);
+		AttackRightCollision->SetCollisionScale({ 180, 80 });
+		AttackRightCollision->SetCollisionType(CollisionType::Rect);
 	}
 
 	ChangeState(PlayerState::Idle);
@@ -95,22 +109,39 @@ void Player::Start()
 
 void Player::Update(float _Delta)
 {
-	std::vector<GameEngineCollision*> _Col;
-	if (true == BodyCollision->Collision(CollisionOrder::MonsterBody, _Col
-		, CollisionType::CirCle
-		, CollisionType::CirCle
-	))
-	{
-		for (size_t i = 0; i < _Col.size(); i++)
-		{
-			GameEngineCollision* Collision = _Col[i];
+	//std::vector<GameEngineCollision*> _Col;
+	//if (true == BodyCollision->Collision(CollisionOrder::MonsterBody, _Col
+	//	, CollisionType::Rect
+	//	, CollisionType::Rect
+	//))
+	//{
+	//	for (size_t i = 0; i < _Col.size(); i++)
+	//	{
+	//		GameEngineCollision* Collision = _Col[i];
 
-			GameEngineActor* Actor = Collision->GetActor();
+	//		GameEngineActor* Actor = Collision->GetActor();
 
-			Actor->Death();
-		}
-		// 나는 몬스터랑 충돌한거야.
-	}
+	//		Actor->Death();
+	//	}
+	//	// 나는 몬스터랑 충돌한거야.
+	//}
+
+	//std::vector<GameEngineCollision*> _Col;
+	//if (true == AttackCollision->Collision(CollisionOrder::MonsterBody, _Col
+	//	, CollisionType::Rect
+	//	, CollisionType::Rect
+	//))
+	//{
+	//	for (size_t i = 0; i < _Col.size(); i++)
+	//	{
+	//		GameEngineCollision* Collision = _Col[i];
+
+	//		GameEngineActor* Actor = Collision->GetActor();
+
+	//		Actor->Death();
+	//	}
+	//	// 나는 몬스터랑 충돌한거야.
+	//}
 
 
 	if (true == GameEngineInput::IsDown('L'))
@@ -133,6 +164,28 @@ void Player::Update(float _Delta)
 	if (true == GameEngineInput::IsPress('M'))
 	{
 		GameEngineWindow::MainWindow.AddDoubleBufferingCopyScaleRatio(1.0f * _Delta);
+	}
+
+	if (true == GameEngineInput::IsPress(VK_LBUTTON))
+	{
+		std::vector<GameEngineCollision*> _Col;
+		if (true == AttackRightCollision->Collision(CollisionOrder::MonsterBody, _Col
+			, CollisionType::Rect, CollisionType::Rect) || (
+			true == AttackLeftCollision->Collision(CollisionOrder::MonsterBody, _Col
+				, CollisionType::Rect
+				, CollisionType::Rect)
+		))
+		{
+			for (size_t i = 0; i < _Col.size(); i++)
+			{
+				GameEngineCollision* Collision = _Col[i];
+
+				GameEngineActor* Actor = Collision->GetActor();
+
+				Actor->Death();
+			}
+			// 나는 몬스터랑 충돌한거야.
+		}
 	}
 
 	StateUpdate(_Delta);
@@ -238,7 +291,7 @@ void Player::Render(float _Delta)
 	std::string Text = "";
 
 	Text += "플레이어 테스트 값 : ";
-	Text += std::to_string(TestValue);
+	Text += std::to_string(1.0f / _Delta);
 	HDC dc = GameEngineWindow::MainWindow.GetBackBuffer()->GetImageDC();
 	TextOutA(dc, 800, 3, Text.c_str(), static_cast<int>(Text.size()));
 
@@ -249,9 +302,9 @@ void Player::Render(float _Delta)
 	//Rectangle(dc, Data.iLeft(), Data.iTop(), Data.iRight(), Data.iBot());
 
 	// 커피가 공격할 범위
-	Data.Pos = ActorCameraPos() + LeftCheck;
-	Rectangle(dc, Data.iLeft(), Data.iTop(), Data.iRight(), Data.iBot());
+	//Data.Pos = ActorCameraPos() + LeftCheck;
+	//Rectangle(dc, Data.iLeft(), Data.iTop(), Data.iRight(), Data.iBot());
 
-	Data.Pos = ActorCameraPos() + RightCheck;
-	Rectangle(dc, Data.iLeft(), Data.iTop(), Data.iRight(), Data.iBot());
+	//Data.Pos = ActorCameraPos() + RightCheck;
+	//Rectangle(dc, Data.iLeft(), Data.iTop(), Data.iRight(), Data.iBot());
 }

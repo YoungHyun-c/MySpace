@@ -6,36 +6,35 @@ class GameEngineObject
 {
 	friend class GameEngineLevel;
 	friend class GameEngineCore;
-
 public:
-	// constrcuter destructer
+	// constructer destructer
 	GameEngineObject();
 	virtual ~GameEngineObject();
 
 	// delete Function
 	GameEngineObject(const GameEngineObject& _Other) = delete;
 	GameEngineObject(GameEngineObject&& _Other) noexcept = delete;
-	GameEngineObject& operator=(const GameEngineObject& _Other) = delete;
-	GameEngineObject& operator=(GameEngineObject&& _Other) noexcept = delete;
+	GameEngineObject& operator = (const GameEngineObject& _Other) = delete;
+	GameEngineObject& operator = (GameEngineObject&& _Other) noexcept = delete;
 
-	// 시작하고.
+	// 시작하고
 	virtual void Start() {}
 
-	// 행동한고.
+	// 행동하고
 	virtual void Update(float _Delta) {}
 
-	// 그려지고.
+	// 그려지고
 	virtual void Render(float _Delta) {}
 
 	// 정리된다.
 	virtual void Release() {}
 
-	void On()
+	virtual void On()
 	{
 		IsUpdateValue = true;
 	}
 
-	void Off()
+	virtual void Off()
 	{
 		IsUpdateValue = false;
 	}
@@ -60,6 +59,12 @@ public:
 		return Order;
 	}
 
+	template<typename EnumType>
+	void SetOrder(EnumType _Order)
+	{
+		SetOrder(static_cast<int>(_Order));
+	}
+
 	virtual void SetOrder(int _Order)
 	{
 		Order = _Order;
@@ -77,12 +82,11 @@ public:
 
 protected:
 
-
 private:
 	float LiveTime = 0.0f;
 	int Order = 0;
-	bool IsUpdateValue = true; // 이걸 false로 만들면 됩니다.
-	bool IsDeathValue = false; // 아예 메모리에서 날려버리고 싶어.
+	bool IsUpdateValue = true; // 이걸 false로 만들면 된다.
+	bool IsDeathValue = false; // 아예 메모리에서 없애고 싶으면 쓰면 된다.
 
 	void AddLiveTime(float _DeltaTime)
 	{

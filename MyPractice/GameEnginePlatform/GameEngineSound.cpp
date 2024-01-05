@@ -12,6 +12,11 @@
 
 ////////////////////////////////////////////////// SoundPlayer
 
+void GameEngineSoundPlayer::SetLoop(int _Count)
+{
+	Control->setLoopCount(_Count);
+}
+
 void GameEngineSoundPlayer::SetVolume(float _Volume)
 {
 	Control->setVolume(_Volume * GameEngineSound::GlobalVolume);
@@ -23,8 +28,8 @@ void GameEngineSoundPlayer::Stop()
 }
 
 
-//////////////////////////////////////////////// 관리를 위한 코드 
-
+//////////////////////////////////////////////// 관리를 위한 코드
+// 
 // FMOD를 사용하기 위한 핸들 및 객체
 FMOD::System* SoundSystem = nullptr;
 
@@ -47,12 +52,10 @@ public:
 
 	~SoundSystemCreator()
 	{
-
-
 		SoundSystem->release();
 	}
-};
 
+};
 
 void GameEngineSound::Update()
 {
@@ -60,10 +63,8 @@ void GameEngineSound::Update()
 	{
 		MsgBoxAssert("Sound System이 생성되지 않아서 사운드 업데이트를 돌릴수가 없습니다.");
 	}
-
 	SoundSystem->update();
 }
-
 
 
 SoundSystemCreator SoundInitObject = SoundSystemCreator();
@@ -74,6 +75,7 @@ std::map<std::string, GameEngineSound*> GameEngineSound::AllSound;
 
 GameEngineSound::GameEngineSound()
 {
+
 }
 
 GameEngineSound::~GameEngineSound()
@@ -84,7 +86,7 @@ GameEngineSound::~GameEngineSound()
 	}
 }
 
-//
+
 //void GameEngineSound::Init()
 //{
 //	static bool IsOnce = false;
@@ -100,6 +102,7 @@ GameEngineSound::~GameEngineSound()
 //	// Fmod를 사용하기 위한 준비를 하는 함수
 //	IsOnce = true;
 //}
+
 
 GameEngineSound* GameEngineSound::FindSound(const std::string& _Name)
 {
@@ -126,7 +129,7 @@ void GameEngineSound::SoundLoad(const std::string& _Name, const std::string& _Pa
 	AllSound.insert(std::make_pair(UpperName, NewSound));
 }
 
-GameEngineSoundPlayer GameEngineSound::SoundPlay(const std::string& _Name)
+GameEngineSoundPlayer GameEngineSound::SoundPlay(const std::string& _Name, int _Loop)
 {
 	GameEngineSound* FindSoundPtr = FindSound(_Name);
 
@@ -139,6 +142,8 @@ GameEngineSoundPlayer GameEngineSound::SoundPlay(const std::string& _Name)
 	GameEngineSoundPlayer Player = FindSoundPtr->Play();
 
 	Player.SetVolume(1.0f);
+
+	Player.SetLoop(_Loop);
 
 	return Player;
 }
@@ -156,27 +161,18 @@ void GameEngineSound::Release()
 	}
 }
 
-
-
-/////////////////////////////// 맴버
-
-
-
-
 void GameEngineSound::Load(const std::string& _Path)
 {
 	// 멀티바이트 => UTF-8 인코딩으로 변환해줄 함수가 필요하다.
 
-
-
-	// "asdfasdfasdfad" <== 멀티바이트 인코딩
-	// 이녀석이 원하는 인코딩방식이 UTF-8
-	// 근래에는 언어나 국가마다 오류를 일으킬 여지가 있는 string 인코딩은 안쓰려고 하는 추세다.
+	// "asdfasdf" <== 멀티바이트 인코딩
+	// 이녀석이 원하는 인코딩 방식이 UTF-8
+	// 근래에는 언어나 국가마다 오류를 일으킬 여지가 있는 string 인코딩은 안하려고 하는 추세다.
 
 	std::string UTF8 = GameEngineString::AnsiToUTF8(_Path);
 
-	// const가 안붙어있으면
-	// 로드한 사운드의 정보를 리턴해주는 걸수 
+	//const 가 안붙어 있으면
+	//로드한 사운드의 정보를 리턴해주는
 	SoundSystem->createSound(UTF8.c_str(), FMOD_LOOP_NORMAL, nullptr, &SoundHandle);
 
 	if (nullptr == SoundHandle)

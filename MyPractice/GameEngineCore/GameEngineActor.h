@@ -5,7 +5,7 @@
 #include <list>
 
 // 설명 : 화면안에 존재하는 플레이어 몬스터 총알 등등등 존재한다고 치고
-// 위치가 있다면 이 녀석으로 표현해야 합니다.
+// 위치가 있다면 이 녀석으로 표현해야 한다.
 class GameEngineLevel;
 class GameEngineRenderer;
 class GameEngineCollision;
@@ -13,21 +13,22 @@ class GameEngineActor : public GameEngineObject
 {
 	friend GameEngineLevel;
 public:
-	// constrcuter destructer
+	// constructer destructer
 	GameEngineActor();
 	virtual ~GameEngineActor();
 
 	// delete Function
 	GameEngineActor(const GameEngineActor& _Other) = delete;
 	GameEngineActor(GameEngineActor&& _Other) noexcept = delete;
-	GameEngineActor& operator=(const GameEngineActor& _Other) = delete;
-	GameEngineActor& operator=(GameEngineActor&& _Other) noexcept = delete;
+	GameEngineActor& operator = (const GameEngineActor& _Other) = delete;
+	GameEngineActor& operator = (GameEngineActor&& _Other) noexcept = delete;
 
 	void SetPos(const float4& _Pos)
 	{
 		Pos = _Pos;
 	}
 
+	// 실수는 무조건 오차가 생기긴한다.
 	void AddPos(const float4& _Pos)
 	{
 		Pos += _Pos;
@@ -58,6 +59,7 @@ public:
 
 	GameEngineRenderer* CreateRenderer(const std::string& _ImageName, int _Order);
 
+
 	template<typename EnumType>
 	GameEngineRenderer* CreateUIRenderer(EnumType _Order)
 	{
@@ -78,28 +80,47 @@ public:
 	GameEngineRenderer* CreateUIRenderer(const std::string& _ImageName, int _Order);
 
 	template<typename EnumType>
-	GameEngineCollision* CreateCollision(EnumType _Order)
+	GameEngineCollision* CreateCollision(EnumType _Order = 0)
 	{
 		return CreateCollision(static_cast<int>(_Order));
 	}
 
-
 	GameEngineCollision* CreateCollision(int _Order = 0);
-
 
 	GameEngineLevel* GetLevel()
 	{
 		return Level;
 	}
 
+	bool IsLevelOver()
+	{
+		return IsOverValue;
+	}
+
+	void OverOn()
+	{
+		IsOverValue = true;
+	}
+
+	void OverOff()
+	{
+		IsOverValue = false;
+	}
+
+
+
 protected:
 	virtual void LevelStart() {}
 	virtual void LevelEnd() {}
 
 private:
+	// true가 되는순간
+	bool IsOverValue = false;
+
 	GameEngineLevel* Level;
 
 	float4 Pos = float4::ZERO;
+	float4 Scale = float4::ZERO; // <= 크기는 엑터한테 필요 없다.
 
 	std::list<GameEngineRenderer*> AllRenderer;
 	std::list<GameEngineCollision*> AllCollision;

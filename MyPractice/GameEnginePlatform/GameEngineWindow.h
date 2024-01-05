@@ -9,15 +9,14 @@ class GameEngineWindow
 public:
 	static GameEngineWindow MainWindow;
 
-	// constrcuter destructer
 	GameEngineWindow();
 	~GameEngineWindow();
 
 	// delete Function
 	GameEngineWindow(const GameEngineWindow& _Other) = delete;
 	GameEngineWindow(GameEngineWindow&& _Other) noexcept = delete;
-	GameEngineWindow& operator=(const GameEngineWindow& _Other) = delete;
-	GameEngineWindow& operator=(GameEngineWindow&& _Other) noexcept = delete;
+	GameEngineWindow& operator = (const GameEngineWindow& _Other) = delete;
+	GameEngineWindow& operator = (GameEngineWindow&& _Other) noexcept = delete;
 
 	void Open(const std::string& _Title, HINSTANCE _hInstance);
 
@@ -55,6 +54,8 @@ public:
 	void ClearBackBuffer();
 	void DoubleBuffering();
 
+	void CursorOff();
+
 	static bool IsFocus()
 	{
 		return IsFocusValue;
@@ -65,7 +66,7 @@ public:
 		return CopyRatio;
 	}
 
-	void SetDoubleBufferingCopyScaleRatio(float _Ratio)
+	void SetDoubleBufferingCopySaleRatio(float _Ratio)
 	{
 		CopyRatio = _Ratio;
 	}
@@ -91,8 +92,8 @@ private:
 
 	GameEngineWindowTexture* BackBuffer = nullptr;
 
-	// 2차원 배열 형식의 색깔들의 집합이 존재하고
-	// 거기에 그림을 그리거나 수정할수 있는 권한을 HDC
+	// 2차원 배열형식의 색깔들의 집합이 존재하고
+	// 거기에 그림을 그리거나 수정할 수 있는 권한을 HDC
 	HDC Hdc = nullptr;
 
 	static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);

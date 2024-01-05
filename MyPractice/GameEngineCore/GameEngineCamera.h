@@ -12,15 +12,15 @@ class GameEngineCamera
 	friend class GameEngineLevel;
 
 public:
-	// constrcuter destructer
+	// constructer destructer
 	GameEngineCamera();
 	~GameEngineCamera();
 
 	// delete Function
 	GameEngineCamera(const GameEngineCamera& _Other) = delete;
 	GameEngineCamera(GameEngineCamera&& _Other) noexcept = delete;
-	GameEngineCamera& operator=(const GameEngineCamera& _Other) = delete;
-	GameEngineCamera& operator=(GameEngineCamera&& _Other) noexcept = delete;
+	GameEngineCamera& operator = (const GameEngineCamera& _Other) = delete;
+	GameEngineCamera& operator = (GameEngineCamera&& _Other) noexcept = delete;
 
 	float4 GetPos()
 	{
@@ -37,6 +37,8 @@ public:
 		Pos += _Value;
 	}
 
+
+
 protected:
 
 private:
@@ -47,6 +49,8 @@ private:
 	void PushRenderer(GameEngineRenderer* _Renderer, int _Order);
 
 	void Release();
+
+	void OverRelease();
 
 	void Render(float _Delta);
 };

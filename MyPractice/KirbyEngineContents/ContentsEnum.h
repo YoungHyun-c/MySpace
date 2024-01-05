@@ -16,8 +16,53 @@ enum class RenderOrder
 enum class CollisionOrder
 {
 	Map,
-	Potal,
+	Player,
+	Monster,
+	Bullet,
+	MonsterAttack,
+	//////
 	PlayerBody,
 	MonsterBody,
 	PlayerAttackSize,
+};
+
+enum class DebugMode
+{
+	PLAYMODE,
+	DEBUGMODE,
+};
+
+enum class MonsterDirectionState
+{
+	Left,
+	Right,
+};
+
+enum class MonsterState
+{
+	Walk,
+	Damage,
+	Dead,
+	GetDrain,
+	Attack,
+	Jump,
+	AttackReady,
+	Idle,
+	Breath,
+};
+
+enum class KirbyAbilityState
+{
+	Normal,
+	DrainAfter,
+	Beam,
+	Cutter,
+};
+
+enum class StageState
+{
+	OneOne,
+	OneTwo,
+	//Item,
+	Boss,
 };

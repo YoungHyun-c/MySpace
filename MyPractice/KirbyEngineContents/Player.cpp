@@ -79,7 +79,7 @@ void Player::Start()
 		GameEngineRenderer* Ptr = CreateRenderer("HPbar.Bmp", RenderOrder::Play);
 		Ptr->SetRenderPos({ -400, -270 });
 		Ptr->SetRenderScale({ 200, 10 });
-		Ptr->SetTexture("HPBar.Bmp");
+		//Ptr->SetTexture("HPBar.Bmp");
 	}
 
 	{
@@ -166,27 +166,23 @@ void Player::Update(float _Delta)
 		GameEngineWindow::MainWindow.AddDoubleBufferingCopyScaleRatio(1.0f * _Delta);
 	}
 
-	if (true == GameEngineInput::IsPress(VK_LBUTTON))
-	{
-		std::vector<GameEngineCollision*> _Col;
-		if (true == AttackRightCollision->Collision(CollisionOrder::MonsterBody, _Col
-			, CollisionType::Rect, CollisionType::Rect) || (
-			true == AttackLeftCollision->Collision(CollisionOrder::MonsterBody, _Col
-				, CollisionType::Rect
-				, CollisionType::Rect)
-		))
-		{
-			for (size_t i = 0; i < _Col.size(); i++)
-			{
-				GameEngineCollision* Collision = _Col[i];
+	//if (true == GameEngineInput::IsDown(VK_LBUTTON))
+	//{
+	//	std::vector<GameEngineCollision*> _Col;
+	//	if (true == AttackRightCollision->Collision(CollisionOrder::MonsterBody, _Col
+	//		, CollisionType::Rect, CollisionType::Rect))
+	//	{
+	//		for (size_t i = 0; i < _Col.size(); i++)
+	//		{
+	//			GameEngineCollision* Collision = _Col[i];
 
-				GameEngineActor* Actor = Collision->GetActor();
+	//			GameEngineActor* Actor = Collision->GetActor();
 
-				Actor->Death();
-			}
-			// 나는 몬스터랑 충돌한거야.
-		}
-	}
+	//			Actor->Death();
+	//		}
+	//		// 나는 몬스터랑 충돌한거야.
+	//	}
+	//}
 
 	StateUpdate(_Delta);
 

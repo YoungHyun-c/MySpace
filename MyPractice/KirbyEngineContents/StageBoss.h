@@ -17,13 +17,13 @@ public:
 	StageBoss& operator = (StageBoss&& _Other) noexcept = delete;
 
 protected:
-	void LevelStart(GameEngineLevel *_PrevLevel) override;
-	void LevelEnd(GameEngineLevel* _NextLevel) override;
+	//void LevelStart(GameEngineLevel *_PrevLevel) override;
+	//void LevelEnd(GameEngineLevel* _NextLevel) override;
 
 private:
-	void Start() override;
-	void Update(float _Delta) override;
-	void Release() override;
+	//void Start() override;
+	//void Update(float _Delta) override;
+	//void Release() override;
 
 	class BackGround* BackGroundPtr;
 	class Player* LevelPlayer = nullptr;

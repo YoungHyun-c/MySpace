@@ -2,13 +2,14 @@
 #include <GameEngineBase/GameEngineDebug.h>
 
 std::map<int, GameEngineInput::GameEngineKey> GameEngineInput::AllKeys;
-
 GameEngineInput::GameEngineInput()
 {
+
 }
 
 GameEngineInput::~GameEngineInput()
 {
+
 }
 
 void GameEngineInput::InputInit()
@@ -19,7 +20,6 @@ void GameEngineInput::InputInit()
 	{
 		return;
 	}
-
 
 	AllKeys[VK_LBUTTON] = GameEngineKey(VK_LBUTTON);
 	AllKeys[VK_RBUTTON] = GameEngineKey(VK_RBUTTON);
@@ -116,21 +116,18 @@ void GameEngineInput::InputInit()
 
 	for (int i = '0'; i <= '9'; i++)
 	{
-		AllKeys[i] = GameEngineKey(i);
+		AllKeys[i] = GameEngineKey(1);
 	}
-
 }
-
 
 void GameEngineInput::GameEngineKey::Update(float _DeltaTime)
 {
 	if (true == KeyCheck())
 	{
 		// 키가 눌렸다.
-
 		PressTime += _DeltaTime;
 
-		// 여태까지 키가 눌렸던적이 없다는 거죠.
+		// 여태까지 키가 눌렸던 적이 없다.
 		if (true == Free)
 		{
 			Down = true;
@@ -145,12 +142,11 @@ void GameEngineInput::GameEngineKey::Update(float _DeltaTime)
 			Up = false;
 			Free = false;
 		}
-
 	}
 	else
 	{
 		PressTime = 0.0f;
-		// 키가 눌리지 않았다.
+		//키가 눌리지 않았다.
 		if (true == Press)
 		{
 			Down = false;
@@ -166,6 +162,7 @@ void GameEngineInput::GameEngineKey::Update(float _DeltaTime)
 			Free = true;
 		}
 	}
+
 }
 
 void GameEngineInput::Reset()
@@ -177,7 +174,6 @@ void GameEngineInput::Reset()
 	{
 		StartIter->second.Reset();
 	}
-
 }
 
 void GameEngineInput::Update(float _DeltaTime)
@@ -189,7 +185,6 @@ void GameEngineInput::Update(float _DeltaTime)
 	{
 		StartIter->second.Update(_DeltaTime);
 	}
-
 }
 
 bool GameEngineInput::IsDown(int _Key)
@@ -201,31 +196,30 @@ bool GameEngineInput::IsDown(int _Key)
 
 	return AllKeys[_Key].Down;
 }
+
 bool GameEngineInput::IsUp(int _Key)
 {
 	if (AllKeys.end() == AllKeys.find(_Key))
 	{
 		MsgBoxAssert("아직 처리하지 못하는 키입니다." + std::to_string(_Key));
 	}
-
 	return AllKeys[_Key].Up;
 }
+
 bool GameEngineInput::IsPress(int _Key)
 {
 	if (AllKeys.end() == AllKeys.find(_Key))
 	{
 		MsgBoxAssert("아직 처리하지 못하는 키입니다." + std::to_string(_Key));
 	}
-
 	return AllKeys[_Key].Press;
 }
+
 bool GameEngineInput::IsFree(int _Key)
 {
 	if (AllKeys.end() == AllKeys.find(_Key))
 	{
 		MsgBoxAssert("아직 처리하지 못하는 키입니다." + std::to_string(_Key));
 	}
-
 	return AllKeys[_Key].Free;
 }
-

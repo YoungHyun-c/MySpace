@@ -5,10 +5,12 @@
 
 GameEngineSprite::GameEngineSprite()
 {
+
 }
 
 GameEngineSprite::~GameEngineSprite()
 {
+
 }
 
 void GameEngineSprite::CreateSpriteSheet(GameEngineWindowTexture* _Texture, int _XCount, int _YCount)
@@ -19,7 +21,6 @@ void GameEngineSprite::CreateSpriteSheet(GameEngineWindowTexture* _Texture, int 
 
 	float4 StartPos = { float4::ZERO };
 	float4 ImageSize = { TexScale.X / _XCount, TexScale.Y / _YCount };
-
 
 	for (size_t y = 0; y < _YCount; y++)
 	{
@@ -40,8 +41,6 @@ void GameEngineSprite::CreateSpriteSheet(GameEngineWindowTexture* _Texture, int 
 		StartPos.X = 0;
 		StartPos.Y += ImageSize.Y;
 	}
-
-
 }
 
 void GameEngineSprite::CreateSpriteFolder(const std::string& _Path)
@@ -67,7 +66,7 @@ const GameEngineSprite::Sprite& GameEngineSprite::GetSprite(size_t _Index)
 
 	if (0 > _Index)
 	{
-		MsgBoxAssert("0보다 작은 스프라이트 인덱스 입니다.");
+		MsgBoxAssert("0 보다 작은 스프라이트 인덱스 입니다.");
 		return ReturnValue;
 	}
 

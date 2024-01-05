@@ -90,6 +90,7 @@ void Stage1_1::Update(float _Delta)
 	{
 		Monster* NewMoster = CreateActor<Monster>();
 		ResetLiveTime();
+		NewMoster->SetPos(float4{ 300.0f, 50.0f });
 	}
 
 }

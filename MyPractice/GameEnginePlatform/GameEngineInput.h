@@ -17,7 +17,6 @@ private:
 		bool Up = false;
 		bool Free = true;
 
-		// 의미가 없다고 봐요.
 		float PressTime = 0.0f;
 
 		int Key = -1;
@@ -60,17 +59,16 @@ private:
 
 		}
 	};
-
 public:
-	// constrcuter destructer
+	// constructer destructer
 	GameEngineInput();
 	~GameEngineInput();
 
 	// delete Function
 	GameEngineInput(const GameEngineInput& _Other) = delete;
 	GameEngineInput(GameEngineInput&& _Other) noexcept = delete;
-	GameEngineInput& operator=(const GameEngineInput& _Other) = delete;
-	GameEngineInput& operator=(GameEngineInput&& _Other) noexcept = delete;
+	GameEngineInput& operator = (const GameEngineInput& _Other) = delete;
+	GameEngineInput& operator = (GameEngineInput&& _Other) noexcept = delete;
 
 	static float4 MousePos();
 
@@ -86,6 +84,6 @@ public:
 protected:
 
 private:
-	static std::map<int, GameEngineKey> AllKeys;
+	static std::map<int, GameEngineKey>AllKeys;
 };
 

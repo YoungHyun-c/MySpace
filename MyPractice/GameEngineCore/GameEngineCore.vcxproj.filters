@@ -13,6 +13,9 @@
     <Filter Include="Object\Rendering">
       <UniqueIdentifier>{40120af2-a22a-4ca7-9215-943d993e08e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\TileMap">
+      <UniqueIdentifier>{b34b5f5b-46ab-498b-81ab-5e8c7b06956f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngineActor.h">
@@ -43,6 +46,9 @@
     <ClInclude Include="GameEngineSprite.h">
       <Filter>Resources</Filter>
     </ClInclude>
+    <ClInclude Include="TileMap.h">
+      <Filter>Object\TileMap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineActor.cpp">
@@ -72,6 +78,9 @@
     </ClCompile>
     <ClCompile Include="GameEngineSprite.cpp">
       <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMap.cpp">
+      <Filter>Object\TileMap</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

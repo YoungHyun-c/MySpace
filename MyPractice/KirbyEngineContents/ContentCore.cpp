@@ -3,6 +3,8 @@
 //#include "PlayLevel.h"
 #include "Stage1_1.h"
 #include "Stage1_2.h"
+#include "StageItem.h"
+#include "StageBoss.h"
 #include "EndingLevel.h"
 #include <GameEnginePlatform/GameEngineWindow.h>
 
@@ -23,6 +25,8 @@ void ContentCore::Start()
 	//GameEngineCore::CreateLevel<PlayLevel>("PlayLevel");
 	GameEngineCore::CreateLevel<Stage1_1>("Stage1_1");
 	GameEngineCore::CreateLevel<Stage1_2>("Stage1_2");
+	GameEngineCore::CreateLevel<StageItem>("StageItem");
+	GameEngineCore::CreateLevel<StageBoss>("StageBoss");
 	GameEngineCore::CreateLevel<EndingLevel>("EndingLevel");
 
 	// 이 레벨이 화면에 보여라.

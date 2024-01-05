@@ -10,6 +10,12 @@
     <Filter Include="Play">
       <UniqueIdentifier>{ae14405e-37e9-46b5-afec-a7a1fd22f0a9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Global\Player">
+      <UniqueIdentifier>{9464ef38-6d11-47b6-9fba-9d5c4894eb8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global\Player\PlayerState">
+      <UniqueIdentifier>{4b751864-d339-4062-966c-90d696f8ce0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentCore.h" />
@@ -34,9 +40,6 @@
     <ClInclude Include="Monster.h">
       <Filter>Global</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Global</Filter>
-    </ClInclude>
     <ClInclude Include="PlayUIManager.h">
       <Filter>Play</Filter>
     </ClInclude>
@@ -52,6 +55,15 @@
     </ClInclude>
     <ClInclude Include="StageBoss.h">
       <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Global\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_State.h">
+      <Filter>Global\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="NorMal_Kirby.h">
+      <Filter>Global\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -74,12 +86,6 @@
     <ClCompile Include="Monster.cpp">
       <Filter>Global</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Global</Filter>
-    </ClCompile>
-    <ClCompile Include="Player_State.cpp">
-      <Filter>Global</Filter>
-    </ClCompile>
     <ClCompile Include="PlayUIManager.cpp">
       <Filter>Play</Filter>
     </ClCompile>
@@ -95,6 +101,15 @@
     </ClCompile>
     <ClCompile Include="StageBoss.cpp">
       <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Global\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_State.cpp">
+      <Filter>Global\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="NorMal_Kirby.cpp">
+      <Filter>Global\Player</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

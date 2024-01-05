@@ -1,12 +1,13 @@
 #include "GameEngineActor.h"
 #include "GameEngineRenderer.h"
-#include "GameEngineCollision.h"
 #include "GameEngineLevel.h"
 #include "GameEngineCamera.h"
+#include "GameEngineCollision.h"
 #include <GameEngineBase/GameEngineDebug.h>
 
 GameEngineActor::GameEngineActor()
 {
+
 }
 
 GameEngineActor::~GameEngineActor()
@@ -22,15 +23,19 @@ GameEngineActor::~GameEngineActor()
 		delete Collision;
 		Collision = nullptr;
 	}
-
 }
 
 void GameEngineActor::ActorRelease()
 {
+	/*std::list<GameEngineRenderer*>& Group = AllRenderer;
+
+	std::list<GameEngineRenderer*>::iterator ObjectStartIter = Group.begin();
+	std::list<GameEngineRenderer*>::iterator ObjectEndIter = Group.end();*/
+
 	std::list<GameEngineRenderer*>::iterator ObjectStartIter = AllRenderer.begin();
 	std::list<GameEngineRenderer*>::iterator ObjectEndIter = AllRenderer.end();
 
-	for (; ObjectStartIter != ObjectEndIter; )
+	for (; ObjectStartIter != ObjectEndIter;)
 	{
 		GameEngineRenderer* Renderer = *ObjectStartIter;
 		if (false == Renderer->IsDeath())
@@ -39,25 +44,24 @@ void GameEngineActor::ActorRelease()
 			continue;
 		}
 
-
 		if (nullptr == Renderer)
 		{
-			MsgBoxAssert("nullptr인 액터가 레벨의 리스트에 들어가 있었습니다.");
+			MsgBoxAssert("nulltpr인 엑터가 레벨의 리스트에 들어가 있었습니다.");
 			continue;
 		}
 
 		delete Renderer;
 		Renderer = nullptr;
 
-		// [s] [a] [a]     [a] [e]
 		ObjectStartIter = AllRenderer.erase(ObjectStartIter);
-
 	}
 }
 
 GameEngineRenderer* GameEngineActor::CreateRenderer(const std::string& _ImageName, int _Order)
 {
 	GameEngineRenderer* NewRenderer = new GameEngineRenderer();
+
+	//GetLevel()->MainCamera->PushRenderer(NewRenderer, _Order);
 
 	NewRenderer->Master = this;
 	NewRenderer->MainCameraSetting();
@@ -71,7 +75,6 @@ GameEngineRenderer* GameEngineActor::CreateRenderer(const std::string& _ImageNam
 
 	return NewRenderer;
 }
-
 
 GameEngineRenderer* GameEngineActor::CreateUIRenderer(const std::string& _ImageName, int _Order)
 {
@@ -90,7 +93,7 @@ GameEngineRenderer* GameEngineActor::CreateUIRenderer(const std::string& _ImageN
 	return NewRenderer;
 }
 
-GameEngineCollision* GameEngineActor::CreateCollision(int _Order/* = 0*/)
+GameEngineCollision* GameEngineActor::CreateCollision(int _Order/*=0*/)
 {
 	GameEngineCollision* NewCollision = new GameEngineCollision();
 

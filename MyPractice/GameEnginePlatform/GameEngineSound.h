@@ -3,14 +3,15 @@
 #include <map>
 #include <GameEngineBase/GameEnginePath.h>
 
-// 선언
+//선언
 #include <GameEnginePlatform/ThirdParty/FMOD/inc/fmod.hpp>
+
 
 class GameEngineSoundPlayer
 {
 	friend class GameEngineSound;
-
 public:
+	void SetLoop(int _Count);
 	void SetVolume(float _Volume);
 	void Stop();
 
@@ -19,10 +20,9 @@ public:
 
 	}
 
-
 private:
 	GameEngineSoundPlayer(FMOD::Channel* _Control)
-		: Control(_Control)
+		:Control(_Control)
 	{
 	}
 
@@ -33,7 +33,6 @@ private:
 class GameEngineSound
 {
 	static float GlobalVolume;
-
 	// Management
 
 	friend class SoundSystemCreator;
@@ -63,23 +62,23 @@ public:
 
 	static void SoundLoad(const std::string& _Name, const std::string& _Path);
 
-	// 1번의 재생을 하고 끝나면 그냥 종료하고 나는 컨트롤할수 없다.
-	static GameEngineSoundPlayer SoundPlay(const std::string& _Name);
+	// 1번의 재생을 하고 끝나면 그냥 종료하고 나는 컨트롤 할 수 없다.
+	static GameEngineSoundPlayer SoundPlay(const std::string& _Name, int _Loop = 0);
 
 	static void Release();
 
 	static void Update();
 
-public:
-	// constrcuter destructer
+
+	// constructer destructer
 	GameEngineSound();
 	~GameEngineSound();
 
 	// delete Function
 	GameEngineSound(const GameEngineSound& _Other) = delete;
 	GameEngineSound(GameEngineSound&& _Other) noexcept = delete;
-	GameEngineSound& operator=(const GameEngineSound& _Other) = delete;
-	GameEngineSound& operator=(GameEngineSound&& _Other) noexcept = delete;
+	GameEngineSound& operator = (const GameEngineSound& _Other) = delete;
+	GameEngineSound& operator = (GameEngineSound&& _Other) noexcept = delete;
 
 protected:
 
@@ -92,6 +91,5 @@ private:
 
 	FMOD::Channel* Play();
 	void Load(const std::string& _Path);
-
 };
 

@@ -190,6 +190,7 @@ void Player::Update(float _Delta)
 
 
 	// Test掻
+	// けいしけいし?
 	// けいしかいしぉ
 }
 
